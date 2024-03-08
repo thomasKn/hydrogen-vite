@@ -9,7 +9,6 @@ import {
   Meta,
   Outlet,
   Scripts,
-  LiveReload,
   useMatches,
   useRouteError,
   useLoaderData,
@@ -18,10 +17,10 @@ import {
   type ShouldRevalidateFunction,
 } from '@remix-run/react';
 import favicon from './assets/favicon.svg';
-import resetStyles from './styles/reset.css';
-import appStyles from './styles/app.css';
+import resetStyles from './styles/reset.css?url';
+import appStyles from './styles/app.css?url';
 import {Layout} from '~/components/Layout';
-import tailwindCss from './styles/tailwind.css';
+import tailwindCss from './styles/tailwind.css?url';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -126,7 +125,6 @@ export default function App() {
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
-        <LiveReload nonce={nonce} />
       </body>
     </html>
   );
@@ -168,7 +166,6 @@ export function ErrorBoundary() {
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
-        <LiveReload nonce={nonce} />
       </body>
     </html>
   );
